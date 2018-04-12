@@ -1,0 +1,24 @@
+{
+//  "presets": ["es2015", "react"]
+//  "presets": [/*"env", */"react"]
+
+//  "presets": ["@babel/preset-env","@babel/preset-react"],
+//  "plugins": ["@babel/plugin-proposal-object-rest-spread","react-hot-loader/babel"]
+  "presets": [
+//    [
+//      "latest", {
+//      "@babel/preset-env": {
+//        "modules": false
+//      }
+//    }
+//    ],
+//    "@babel/react",
+    ["@babel/preset-react",{
+      "modules": false
+    }],
+    "@babel/preset-env"
+  ],
+  "plugins": [
+    "react-hot-loader/babel"
+  ]
+}
