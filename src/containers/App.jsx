@@ -21,10 +21,17 @@
 //
 // export default App;
 
+// import React from 'react'
+//
+// const App = () => (
+//     <div>Hello React Hot Loader!!!!</div>
+// )
+//
+// export default App
 import React from 'react'
+import { hot } from 'react-hot-loader'
 
-const App = () => (
-    <div>Hello React Hot Loader!!!!</div>
-)
+const App = () => <div>Hello World!!!</div>
 
-export default App
+export default hot(module)(App)
+

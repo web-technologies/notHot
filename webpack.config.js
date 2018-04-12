@@ -9,11 +9,12 @@ const webpack = require('webpack');
 module.exports = {
     devtool: 'source-map',
     entry: {
-        'app': [
-            'babel-polyfill',
-            'react-hot-loader/patch',
-            './src/index'
-        ]
+        // 'app': [
+        //     'babel-polyfill',
+        //     'react-hot-loader/patch',
+        //     './src/index'
+        // ]
+        app: './src/index.jsx'
     },
     // entry: [
     //     require.resolve('react-dev-utils/webpackHotDevClient')
@@ -24,8 +25,8 @@ module.exports = {
     },
     plugins: [
         // new LiveReloadPlugin(options=[])
-        // new webpack.NamedModulesPlugin(),
-        // new webpack.HotModuleReplacementPlugin(),
+        new webpack.NamedModulesPlugin(),
+        new webpack.HotModuleReplacementPlugin(),
         // new webpack.optimize.ModuleConcatenationPlugin(),
         // new webpack.NoEmitOnErrorsPlugin()
     ],
@@ -53,7 +54,15 @@ module.exports = {
             //     // }
             //
             // }
-            { test: /\.(js|jsx|mjs)$/, exclude: /node_modules/, loader: 'babel-loader' }
+            {
+                test: /\.(js|jsx|mjs)$/,
+                exclude: /node_modules/,
+                loader: 'babel-loader',
+                options: {
+                    presets: ['@babel/preset-env', "@babel/preset-react"],
+                    plugins: ['react-hot-loader/babel'],
+                }
+            }
         ]
     },
     resolve: {
